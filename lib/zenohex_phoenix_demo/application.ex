@@ -7,6 +7,9 @@ defmodule ZenohexPhoenixDemo.Application do
 
   @impl true
   def start(_type, _args) do
+    {:ok, session} = Zenohex.open
+    key = "demo/example/zenoh-rs-pub"
+
     children = [
       ZenohexPhoenixDemoWeb.Telemetry,
       {DNSCluster, query: Application.get_env(:zenohex_phoenix_demo, :dns_cluster_query) || :ignore},
@@ -16,7 +19,8 @@ defmodule ZenohexPhoenixDemo.Application do
       # Start a worker by calling: ZenohexPhoenixDemo.Worker.start_link(arg)
       # {ZenohexPhoenixDemo.Worker, arg},
       # Start to serve requests, typically the last entry
-      ZenohexPhoenixDemoWeb.Endpoint
+      ZenohexPhoenixDemoWeb.Endpoint,
+      {ZenohexPhoenixDemo.ZenohexManager, %{session: session, key_expr: key}},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
