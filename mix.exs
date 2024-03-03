@@ -54,7 +54,8 @@ defmodule ZenohexPhoenixDemo.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.2"}
+      {:bandit, "~> 1.2"},
+      {:zenohex, "~> 0.2.0"}
     ]
   end
 
