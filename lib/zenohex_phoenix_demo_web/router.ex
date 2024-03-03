@@ -16,6 +16,7 @@ defmodule ZenohexPhoenixDemoWeb.Router do
 
   scope "/", ZenohexPhoenixDemoWeb do
     pipe_through :browser
+    live "/", ZenohexLive
 
     get "/", PageController, :home
   end
