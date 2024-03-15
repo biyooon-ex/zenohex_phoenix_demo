@@ -35,6 +35,10 @@ defmodule ZenohexPhoenixDemo.ZenohexManager do
     {:reply, state.msgs, state}
   end
 
+  def handle_call(:clear_msgs, _form, state) do
+    {:reply, [], %{state | msgs: [] }}
+  end
+
   def handle_info(:loop, state) do
     recv_timeout(state)
     {:noreply, state}
