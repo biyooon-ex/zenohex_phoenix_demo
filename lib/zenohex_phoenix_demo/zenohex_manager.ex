@@ -8,9 +8,9 @@ defmodule ZenohexPhoenixDemo.ZenohexManager do
   def init(args) do
     session = Map.fetch!(args, :session)
     key_expr = Map.fetch!(args, :key_expr)
+    {:ok, subscriber} = Zenohex.Session.declare_subscriber(session, "demo/example/zenohex-elixir-put")
+    {:ok, publisher} = Zenohex.Session.declare_publisher(session, "demo/example/zenohex-phoenix-put")
 
-    {:ok, subscriber} = Zenohex.Session.declare_subscriber(session, key_expr)
-    {:ok, publisher} = Zenohex.Session.declare_publisher(session, key_expr)
     state = %{subscriber: subscriber, publisher: publisher, callback: &callback/1, msgs: []}
 
     recv_timeout(state)
