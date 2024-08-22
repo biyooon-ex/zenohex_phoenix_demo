@@ -1,5 +1,17 @@
 # ZenohexPhoenixDemo
 
+## Deploy locally
+
+This operation can be confirmed in `MIX_ENV=dev` or default setting.
+
+  * Run `mix setup` to install and setup dependencies
+  * Run `mix compile` to compile project
+  * Then, start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+
+Now you can visit `http://localhost:4000` from your browser.
+
+## Deploy on the cloud (or servers)
+
 Note: we only confirmed the operation of this repository on the cloud VM in `MIX_ENV=prod`
 
 To start your Phoenix server:
@@ -11,7 +23,7 @@ To start your Phoenix server:
   * Run `MIX_ENV=prod mix phx.gen.secret`, and set the result to `$SECRET_KEY_BASE`
   * Then, start Phoenix endpoint with `MIX_ENV=prod mix phx.server` or inside IEx with `MIX_ENV=prod iex -S mix phx.server`
 
-Now you can visit `<your_vm_url>:4000` from your browser.
+Now you can visit `http://<your_vm_url>:4000` from your browser.
 
 ## Learn more
 
