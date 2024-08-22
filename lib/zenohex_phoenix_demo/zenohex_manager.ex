@@ -1,5 +1,6 @@
 defmodule ZenohexPhoenixDemo.ZenohexManager do
   use GenServer
+  require Logger
 
   def start_link(args) do
     GenServer.start_link(__MODULE__, args, name: __MODULE__)
@@ -7,7 +8,7 @@ defmodule ZenohexPhoenixDemo.ZenohexManager do
 
   def init(args) do
     session = Map.fetch!(args, :session)
-    key_expr = Map.fetch!(args, :key_expr)
+    # key_expr = Map.fetch!(args, :key_expr)
     {:ok, subscriber} = Zenohex.Session.declare_subscriber(session, "key/expression")
     {:ok, publisher} = Zenohex.Session.declare_publisher(session, "key/expression")
 

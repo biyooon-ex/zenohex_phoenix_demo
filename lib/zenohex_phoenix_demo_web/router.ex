@@ -18,7 +18,7 @@ defmodule ZenohexPhoenixDemoWeb.Router do
     pipe_through :browser
     live "/", ZenohexLive
 
-    get "/", PageController, :home
+    # get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.
